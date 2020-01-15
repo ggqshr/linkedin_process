@@ -11,7 +11,7 @@ cl_updated_aft = db["Russell1718_exp_after_acc50"]
 cur_cl = db["cur"]
 aft_cl = db["aft"]
 
-accHires_exp = db["accHires_exp"]
+accHires_exp = db["accHires_exp_ggq"]
 
 def find_accHires_id():
     person_id = set()
@@ -34,5 +34,6 @@ def exp_after_accjob(ids):
 if __name__ == "__main__":
     try:
         ids = find_accHires_id()
+        exp_after_accjob(ids)
     finally:
         client.close()
