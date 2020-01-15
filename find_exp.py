@@ -6,7 +6,7 @@ from pymongo.errors import DuplicateKeyError
 import json
 
 
-ORINGINAL = 'results.US_expand_3000-3300'
+ORINGINAL = 'results.US_expand_0-600'
 OBJECT = 'US_exp_' + ORINGINAL.split("_")[-1]
 
 client = pymongo.MongoClient()
