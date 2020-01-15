@@ -18,7 +18,7 @@ def find_accHires_id():
     accStartYearRange = [2002, 2009]
     for item in cl_updated_aft.find(no_cursor_timeout=False):
         pid, accStartDate = item.get("person_id"), item.get("accStartDate")
-        if accStartDate >= accStartYearRange[0] and accStartDate <= accStartYearRange[1]:
+        if int(accStartDate) >= accStartYearRange[0] and int(accStartDate) <= accStartYearRange[1]:
             person_id.add(pid)
     return person_id
 
