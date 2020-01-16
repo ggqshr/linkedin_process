@@ -37,7 +37,7 @@ def datestr1_later_equal_than_datestr2(datestr1, datestr2):
 
 def find_next_cp():
     tmp_person_id = ""
-    for item in cl_updated_aft.find():
+    for item in cl_updated_aft.find(no_cursor_timeout=False):
         pid = item.get("person_id")
         current_startDate, current_endDate, current_urn = item.get("startDate"), item.get("endDate"), item.get("companyUrn")
 
@@ -77,7 +77,7 @@ def find_next_cp():
 
 
 def write_companyName_by_urn():
-    for item in after_Rus3000_exp.find():
+    for item in after_Rus3000_exp.find(no_cursor_timeout=False):
         ncu = item.get("nextCompanyUrn")
         _id = item.get("_id")
         if ncu:
