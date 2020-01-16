@@ -7,7 +7,7 @@ client = pymongo.MongoClient()
 
 db = client["US_experience"]
 cl_updated_aft = db["Russell1718_exp_after_acc50"]
-
+cl_kw = db["senior_keywords"]
 aft_cl = db["aft"]
 
 after_Rus3000_exp = db["after_Rus3000_exp_ggq"]
@@ -64,6 +64,10 @@ def find_next_cp():
             for e in next_exp:
                 item["nextCompanyUrn"] = e.get("companyUrn")
                 item["nextStartDate"] = e.get("startDate")
+                item['nextCompanyTitle'] = e.get("title") # 获取在下一个公司的职位
+                t = e.get("title").strip().replace(" ", "").lower()
+                if cl_kw.find_one({"title": t}):
+                    item["seniorManagers"] = True
                 item.pop("_id")
                 after_Rus3000_exp.insert_one(item)
 
@@ -81,6 +85,13 @@ def write_companyName_by_urn():
             if cp_item:
                 un = cp_item.get("universalName")
                 after_Rus3000_exp.update_one({"_id":_id},{"$set":{"nextCompanyName":un}})
+        ccu = item.get("companyUrn") # 当前公司的urn
+        if ccu:
+            ccp_item = cp_cl.find_one({"companyUrn":ccu}) # 查询公司名称
+            if ccp_item:
+                un = cp_item.get("universalName")
+                after_Rus3000_exp.update_one({"_id":_id},{"$set":{"CompanyName":un}})
+
 
 if __name__ == "__main__":
     try:
