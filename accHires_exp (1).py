@@ -81,7 +81,6 @@ def write_companyName_by_urn():
             if cp_item:
                 un = cp_item.get("universalName")
                 after_Rus3000_exp.update_one({"_id":_id},{"$set":{"nextCompanyName":un}})
-                print(un)
 
 if __name__ == "__main__":
     try:
