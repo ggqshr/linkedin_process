@@ -10,7 +10,7 @@ cl_updated_aft = db["Russell1718_exp_after_acc50"]
 cl_kw = db["senior_keywords"]
 aft_cl = db["aft"]
 
-after_Rus3000_exp = db["after_Rus3000_exp_ggq"]
+after_Rus3000_exp = db["after_Rus3000_exp_add"]
 
 db_cp = client["companies"]
 cp_cl = db_cp["companyInfo"]
