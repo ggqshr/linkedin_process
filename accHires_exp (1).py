@@ -85,7 +85,7 @@ def write_companyName_by_urn():
 
 if __name__ == "__main__":
     try:
-        # find_next_cp()
+        find_next_cp()
         write_companyName_by_urn()
     finally:
         client.close()
