@@ -90,7 +90,7 @@ def write_companyName_by_urn():
             ccp_item = cp_cl.find_one({"companyUrn":ccu}) # 查询公司名称
             if ccp_item:
                 un = cp_item.get("universalName")
-                after_Rus3000_exp.update_one({"_id":_id},{"$set":{"CompanyName":un}})
+                after_Rus3000_exp.update_one({"_id":_id},{"$set":{"companyName":un}})
 
 
 if __name__ == "__main__":
