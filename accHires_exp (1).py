@@ -10,7 +10,7 @@ cl_updated_aft = db["Russell1718_exp_after_acc50"]
 cl_kw = db["senior_keywords"]
 aft_cl = db["aft"]
 
-after_Rus3000_exp = db["after_Rus3000_exp_add"]
+after_Rus3000_exp = db["after_Rus3000_exp"]
 
 db_cp = client["companies"]
 cp_cl = db_cp["companyInfo"]
@@ -61,6 +61,7 @@ def find_next_cp():
         if len(next_exp) >= 1:
             if len(next_exp) > 1:
                 item["dup"] = 1
+                print("dup!")
             for e in next_exp:
                 item["nextCompanyUrn"] = e.get("companyUrn")
                 item["nextStartDate"] = e.get("startDate")
