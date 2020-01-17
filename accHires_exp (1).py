@@ -61,7 +61,6 @@ def find_next_cp():
         if len(next_exp) >= 1:
             if len(next_exp) > 1:
                 item["dupNextExperience"] = 1
-                print("dup!")
             for e in next_exp:
                 item["nextCompanyUrn"] = e.get("companyUrn")
                 item["nextStartDate"] = e.get("startDate")
