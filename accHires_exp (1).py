@@ -67,7 +67,7 @@ def find_next_cp():
                 item['nextCompanyTitle'] = e.get("title") # 获取在下一个公司的职位
                 t = e.get("title").strip().replace(" ", "").lower()
                 if cl_kw.find_one({"title": t}):
-                    item["seniorManagers"] = True
+                    item["nextCompanyseniorManagers"] = True
                 item.pop("_id")
                 after_Rus3000_exp.insert_one(item)
 
